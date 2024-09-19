@@ -1,25 +1,31 @@
-import React,{ useState} from "react";
-
+import React, { useState } from "react";
 import "./App.css";
+
 const App = () => {
-  const [value, setvalue] = useState();
+  const [value, setValue] = useState(0);
   return (
     <>
-    <article>
-      <header>
-        COUNTER APP
-      </header>
-      <section>
-        <h1>100</h1>
-        <div className="button">
-          <button className="btn">-</button>
-          <button className="btn">+</button>
-        </div>
-      </section>
-      <footer>All Rights Reserved By Ankit Dhanawat</footer>
-    </article>
+      <article>
+        <header>COUNTER APP</header>
+        <section>
+          <h1>{value}</h1>
+          <div className="buttons">
+            <button
+              className="btn"
+              onClick={() => setValue(value - 1)}
+              disabled={value === 0}
+            >
+              -
+            </button>
+            <button className="btn" onClick={() => setValue(value + 1)}>
+              +
+            </button>
+          </div>
+        </section>
+        <footer>&copy; All Rights Reserved By CodeWithZeeshu</footer>
+      </article>
     </>
   );
-}
+};
 
 export default App;
