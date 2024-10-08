@@ -8,7 +8,6 @@ const Home = ({ recipes }) => {
     <div>
       <Herosection />
       <Recipes recipes={recipes}/>
-      Home
     </div>
   );
 }

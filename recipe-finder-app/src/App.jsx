@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import "./App.css";
-import About from './components/About';
-import Home from './components/Home';
-import Navbar from './components/Navbar';
-import RecipeDetails from './components/RecipeDetails';
-import Recipe from './components/subcomponents/Recipes';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import RecipeDetails from "./components/RecipeDetails";
+import './App.css';
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import data from "./resipes.json";
 
 const App = () => {
@@ -13,20 +13,18 @@ const App = () => {
   useEffect(() => {
     setRecipes(data);
   }, []);
-  return (
-    <>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Home recipes={recipes} />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/recipe' element={<Recipe />} />
-          <Route path='/recipe/:id' element={<RecipeDetails />} />
-        </Routes>
-      </BrowserRouter>
 
-    </>
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home recipes={recipes} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/recipe/:id" element={<RecipeDetails recipes={recipes} />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
